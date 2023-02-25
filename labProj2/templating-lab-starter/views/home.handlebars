@@ -1,0 +1,45 @@
+<h1>Welcome to My Donuts Galore Website</h1>
+<p>Who want's donuts?</p>
+
+{{! Using an unordered list (<ul>) }}
+  <ul>  {{!unordered list}}
+  {{! TODO: Loop over each donut category }}
+  {{! For each donut: }}
+  {{#each donuts}}  
+
+    {{! Print the name of the category (type of donut), as well as "on sale" if that value is true }}
+    <li>
+      <h2>{{name}}
+      {{#if onSale}}
+        <span class = "on-Sale">On Sale</span>
+
+
+      {{/if}}
+      </h2>
+
+        {{! Print a <ul> for batters }}
+          <strong>Batters</strong>
+          <ul>
+            {{#each batters.batter}}
+              <li>{{type}}</li>
+
+            {{/each}}
+          </ul>
+        {{! Output a <ul> for toppings }}
+          <strong>Glazes</strong>
+          <ul>
+            {{#each topping}}
+              <li>{{type}}</li>
+            {{/each}}
+          </ul>
+    </li>
+
+
+  {{/each}}
+  </ul>
+
+
+  
+      
+
+      
