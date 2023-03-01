@@ -1,5 +1,5 @@
 const express = require('express');
-
+ 
 let app = express();
 
 // set up handlebars view engine
@@ -12,11 +12,27 @@ app.set('port', process.env.PORT || 3000);
 
 app.use(express.static(__dirname + '/public'));
 
+app.use( express.urlencoded() );
+
+// Routes
+// What is middlewear again?
 
 app.get('/', function(req, res) {
 
 	res.render('home'); 
 });
+
+
+// Handle form post
+app.post('/register', function(req, res) {
+		res.render('thanks', {
+			name: req.body.fullName,
+			book: req.body.book
+		});
+		
+});
+
+
 // 404 catch-all handler (middleware)
 app.use(function(req, res, next){
 	res.status(404);
